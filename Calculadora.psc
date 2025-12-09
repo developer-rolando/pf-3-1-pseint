@@ -1,8 +1,8 @@
 Algoritmo Calculadora
 	
-	Definir option Como Entero;
+	Definir option, option2 Como Entero;
 	Definir bucle Como Logico;
-	Definir num1, num2 Como Real;
+	Definir num1, num2, resultado Como Real;
 	
 	bucle <- Verdadero;
 
@@ -17,9 +17,17 @@ Algoritmo Calculadora
 		Escribir "Salir -> 5";
 		Leer option;
 		
-		Si option <> 5 Entonces
+		Si option <> 5 y option2 <> 1 Entonces
 			Escribir "Ingresa el primer numero: ";
 			Leer num1;
+			Escribir "Ingresa el segundo numero: ";
+			Leer num2;
+		FinSi
+		
+		Si option <> 5 y option2 == 1 Entonces
+			Escribir "Resultado de la operacion anterior: ", resultado;
+			
+			num1 <- resultado;
 			Escribir "Ingresa el segundo numero: ";
 			Leer num2;
 		FinSi
@@ -28,17 +36,21 @@ Algoritmo Calculadora
 				//opciones que pueden ser ingresadas por el usuario
 			1: 
 				Escribir "Operacion: Suma";
-				Escribir num1 + num2;
+				resultado <- num1 + num2;
+				Escribir resultado;
 			2: 
 				Escribir "Operacion: Resta";
-				Escribir num1 - num2;
+				resultado <- num1 - num2;
+				Escribir resultado;
 			3:
 				Escribir "Operacion: Multiplicacion";
-				Escribir num1 * num2;
+				resultado <- num1 * num2;
+				Escribir resultado;
 			4:
 				Escribir "Operacion: Division";
 				Si num2 <> 0 Entonces
-					Escribir num1 / num2;
+					resultado <- num1 / num2;
+					Escribir resultado;
 				SiNo
 					Escribir "¡No se puede dividir entre 0, intenta de nuevo!";
 				FinSi
@@ -52,6 +64,13 @@ Algoritmo Calculadora
 				
 		FinSegun
 		
+		Si option <> 5 Entonces
+			Escribir "¿Quieres realizar otra operacion con este resultado?";
+			Escribir "Si -> 1";
+			Escribir "No -> 2";
+			Leer option2;
+		FinSi
+	
 	FinMientras
 	
 	
